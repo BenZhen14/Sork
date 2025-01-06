@@ -1,3 +1,5 @@
+namespace Sork;
+
 public class SingCommand : ICommand
 {
     public bool Handles(string userInput) => userInput == "sing";

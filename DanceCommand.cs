@@ -1,3 +1,5 @@
+namespace Sork;
+
 public class DanceCommand : ICommand
 {
     public bool Handles(string userInput) => userInput == "dance";

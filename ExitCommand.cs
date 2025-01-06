@@ -1,3 +1,5 @@
+namespace Sork;
+
 public class ExitCommand : ICommand
 {
     public bool Handles(string userInput) => userInput == "exit";
