@@ -1,4 +1,4 @@
-namespace Sork;
+namespace Sork.Commands;
 
 public interface ICommand
 {
