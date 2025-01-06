@@ -1,3 +1,5 @@
+namespace Sork;
+
 public class WhistleCommand : ICommand
 {
     public bool Handles(string userInput) => userInput == "whistle";
