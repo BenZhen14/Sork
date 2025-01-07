@@ -1,3 +1,5 @@
+using Sork.World;
+
 namespace Sork.Commands;
 
 public class SingCommand : BaseCommand
@@ -9,7 +11,7 @@ public class SingCommand : BaseCommand
     }
 
     public override bool Handles(string userInput) => GetCommandFromInput(userInput) == "sing";
-    public override CommandResult Execute() {
+    public override CommandResult Execute(string userInput, GameState gameState) {
         io.WriteMessageLine("You sing!");
         return new CommandResult { RequestExit = false, IsHandled = true };
     }

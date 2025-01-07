@@ -1,4 +1,5 @@
 ﻿using Sork.Commands;
+using Sork.World;
 
 namespace Sork;
 
@@ -7,12 +8,14 @@ public class Program
     public static void Main(string[] args)
     {
         UserInputOutput io = new UserInputOutput();
+        GameState gameState = GameState.Create(io);
         ICommand lol = new LaughCommand(io);
         ICommand dance = new DanceCommand(io);
         ICommand sing = new SingCommand(io);
         ICommand whistle = new WhistleCommand(io);
         ICommand exit = new ExitCommand(io);
-        List<ICommand> commands = new List<ICommand> { lol, dance, sing, whistle, exit };
+        ICommand move = new MoveCommand(io);
+        List<ICommand> commands = new List<ICommand> { lol, dance, sing, whistle, exit, move };
 
         do
         {
@@ -26,7 +29,7 @@ public class Program
                 if (command.Handles(input)) 
                 {
                     handled = true;
-                    result = command.Execute();
+                    result = command.Execute(input, gameState);
                     if (result.RequestExit) { break; }
                 }
             }
@@ -34,37 +37,5 @@ public class Program
             if (result.RequestExit) { break; }
 
         } while (true);
-    }
-}
-
-public class UserInputOutput
-{
-    public void WritePrompt(string prompt) 
-    {
-        Console.ForegroundColor = ConsoleColor.Green;
-        Console.Write(prompt);
-        Console.ResetColor();
-    }
-    public void WriteMessage(string message) 
-    {
-        Console.Write(message);
-    }
-    public void WriteNoun(string noun) 
-    {
-        Console.ForegroundColor = ConsoleColor.Blue;
-        Console.Write(noun);
-        Console.ResetColor();
-    }
-    public void WriteMessageLine(string message) 
-    {
-        Console.WriteLine(message);
-    }
-    public string ReadInput() 
-    {
-        return Console.ReadLine().Trim();
-    }
-    public string ReadKey() 
-    {
-        return Console.ReadKey().KeyChar.ToString();
     }
 }

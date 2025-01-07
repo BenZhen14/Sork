@@ -1,0 +1,22 @@
+namespace Sork.World;
+
+public class GameState
+{
+    public required Player Player { get; set; }
+    public required Room RootRoom { get; set; }
+
+    public static GameState Create(UserInputOutput io)
+    {
+        var tavern = new Room { Name = "Tavern", Description = "You are in the Tarven." };
+        var dungeon = new Room { Name = "Dungeon", Description = "You are in the Dungeon." };
+
+        tavern.Exits.Add("down", dungeon);
+        dungeon.Exits.Add("up", tavern);
+
+        io.WritePrompt("What is your name? ");
+        string name = io.ReadInput();
+
+        var player = new Player { Name = name, Location = tavern };
+        return new GameState { Player = player, RootRoom = tavern };
+    }
+}
