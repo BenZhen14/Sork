@@ -9,10 +9,11 @@ public class SingCommand : BaseCommand
     {
         this.io = io;
     }
-
     public override bool Handles(string userInput) => GetCommandFromInput(userInput) == "sing";
-    public override CommandResult Execute(string userInput, GameState gameState) {
-        io.WriteMessageLine("You sing!");
+    public override CommandResult Execute(string userInput, GameState gameState) 
+    {
+        io.WriteNoun("You");
+        io.WriteMessageLine(" sing!");
         return new CommandResult { RequestExit = false, IsHandled = true };
     }
 }

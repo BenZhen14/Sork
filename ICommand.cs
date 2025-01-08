@@ -1,6 +1,6 @@
-namespace Sork.Commands;
-
 using Sork.World;
+
+namespace Sork;
 
 public interface ICommand
 {

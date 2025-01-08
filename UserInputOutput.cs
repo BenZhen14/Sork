@@ -1,3 +1,5 @@
+namespace Sork;
+
 public class UserInputOutput
 {
     public void WritePrompt(string prompt) 

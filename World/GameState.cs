@@ -13,7 +13,7 @@ public class GameState
         tavern.Exits.Add("down", dungeon);
         dungeon.Exits.Add("up", tavern);
 
-        io.WritePrompt("What is your name? ");
+        io.WritePrompt("What is your name?");
         string name = io.ReadInput();
 
         var player = new Player { Name = name, Location = tavern };
