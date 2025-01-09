@@ -15,7 +15,8 @@ public class Program
         ICommand whistle = new WhistleCommand(io);
         ICommand exit = new ExitCommand(io);
         ICommand move = new MoveCommand(io);
-        List<ICommand> commands = new List<ICommand> { lol, dance, sing, whistle, exit, move };
+        ICommand look = new LookCommand(io);
+        List<ICommand> commands = new List<ICommand> { lol, dance, sing, whistle, exit, move, look };
 
         do
         {
