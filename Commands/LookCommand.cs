@@ -13,7 +13,7 @@ public class LookCommand : BaseCommand
     public override CommandResult Execute(string userInput, GameState gameState)
     {
         var location = gameState.Player.Location;
-        io.WriteMessageLine(location.Description);
+        io.WriteMessageLine($"Location: {location.Name} - {location.Description}");
         if (location.Exits.Count > 0)
         {
             io.WriteMessage("You can go in any of these directions to exit: ");
