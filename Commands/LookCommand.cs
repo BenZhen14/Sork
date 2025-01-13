@@ -14,12 +14,13 @@ public class LookCommand : BaseCommand
     {
         var location = gameState.Player.Location;
         io.WriteMessageLine($"Location: {location.Name} - {location.Description}");
+        io.WriteMessageLine("");
         if (location.Exits.Count > 0)
         {
-            io.WriteMessage("You can go in any of these directions to exit: ");
+            io.WriteMessageLine("You can go in any of these directions to exit: ");
             foreach (var exit in location.Exits)
             {
-                io.WriteMessageLine($"- {exit.Key}");
+                io.WriteMessageLine($"{exit.Key} - {exit.Value.Description}");
             }
         }
         else
