@@ -4,8 +4,8 @@ namespace Sork.Commands;
 
 public class DanceCommand : BaseCommand
 {
-    private readonly UserInputOutput io;
-    public DanceCommand(UserInputOutput io)
+    private readonly IUserInputOutput io;
+    public DanceCommand(IUserInputOutput io)
     {
         this.io = io;
     }

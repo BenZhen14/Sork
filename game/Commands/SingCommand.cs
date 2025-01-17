@@ -4,8 +4,8 @@ namespace Sork.Commands;
 
 public class SingCommand : BaseCommand
 {
-    private readonly UserInputOutput io;
-    public SingCommand(UserInputOutput io)
+    private readonly IUserInputOutput io;
+    public SingCommand(IUserInputOutput io)
     {
         this.io = io;
     }
