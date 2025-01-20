@@ -20,7 +20,7 @@ public class DanceCommand : BaseCommand
         var parameters = GetParametersFromInput(userInput);
         if (parameters.Length == 0) {
             io.WriteNoun("You");
-            io.WriteMessageLine(" dance!");
+            io.WriteMessageLine(" dance around!");
         } else {
             io.WriteNoun("You");
             io.WriteMessage(" dance with ");

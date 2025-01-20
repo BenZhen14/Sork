@@ -9,7 +9,8 @@ public class GameState
     {
         var tavern = new Room { Name = "Tavern", Description = "You are in the Tavern." };
         var dungeon = new Room { Name = "Dungeon", Description = "You are in the Dungeon." };
-
+        var sword = new Item { Name = "Sword", Description = "A sword." };
+        tavern.Inventory.Add(sword);
         tavern.Exits.Add("down", dungeon);
         dungeon.Exits.Add("up", tavern);
 

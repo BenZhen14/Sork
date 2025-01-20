@@ -27,6 +27,12 @@ public class LookCommand : BaseCommand
         {
             io.WriteMessageLine("There are no exits from this location.");
         }
+        io.WriteMessageLine("");
+        io.WriteMessageLine("Inventory:");
+        foreach (var item in gameState.Player.Location.Inventory)
+        {
+            io.WriteMessageLine($"{item.Name} - {item.Description}");
+        }
         return new CommandResult { RequestExit = false, IsHandled = true };
     }
 }
